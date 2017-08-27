@@ -1,0 +1,64 @@
+<md-toolbar color="primary">
+
+  <span>MyCompany</span>
+  <span class="example-spacer"></span>
+  <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> Menu</button>
+
+</md-toolbar>
+<md-menu #appMenu="mdMenu">
+  <button md-menu-item> Settings </button>
+  <button md-menu-item> Help </button>
+</md-menu>
+
+<md-card *ngFor="let data of (myData ? myData.slice(0,3): []); let i = index">
+
+  <img md-card-image src="{{ data.url }}">
+  <md-card-header>
+    <md-card-title>{{ data.title }}</md-card-title>
+  </md-card-header>
+
+  <md-card-actions>
+    <button md-button>LIKE</button>
+    <button md-button>SHARE</button>
+  </md-card-actions>
+
+</md-card>
+
+
+<md-card>
+
+  <md-card>
+    <md-card-content>
+
+      <div layout="row" layout-align="space-between center">
+        <span>What is your favorite color scheulde?</span>
+        <md-select model="title" placeholder="Title" class="md-no-underline">
+          <md-option *ngFor="let data of (myData ? myData.slice(0,3): []); let i = index" [value]="data.title">{{ data.title }}</md-option>
+        </md-select>
+
+      </div>
+
+
+
+      <div layout="row" layout-align="space-between center">
+        <span>What is your favorite weapon?</span>
+        <md-select ng-model="weapon" placeholder="Weapon" class="md-no-underline">
+          <md-option value="axe">Axe</md-option>
+          <md-option value="sword">Sword</md-option>
+          <md-option value="wand">Wand</md-option>
+          <md-option value="pen">Pen?</md-option>
+        </md-select>
+      </div>
+
+
+      <div layout="row" layout-align="space-between center">
+        <span>What armor do you wear?</span>
+        <md-select ng-model="armor" placeholder="Armor" class="md-no-underline" required md-no-asterisk="false">
+          <md-option value="cloth">Cloth</md-option>
+          <md-option value="leather">Leather</md-option>
+          <md-option value="chain">Chainmail</md-option>
+          <md-option value="plate">Plate</md-option>
+        </md-select>
+      </div>
+    </md-card-content>
+  </md-card>
