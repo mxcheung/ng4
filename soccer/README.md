@@ -29,24 +29,29 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## Install project
-ng install soccer
+ng install soccer  
 
 ## Add ball component and module
-ng generate module ball
-ng generate component ball
-BallModule import BallComponent
-AppModule import BallModule
-App Component Html replace with selector app-ball
+ng generate module ball  
+ng generate component ball  
+BallModule import BallComponent  
+AppModule import BallModule  
+App Component Html replace with selector app-ball  
 
 ## Add ball component variable
-message: String;
-add reference {{message}}
+message: String;  
+add reference {{message}}  
 
 ## Add ball service
-ng generate service ball
-BallModule import BallService 
-BallModule add provider BallService 
-BallComponent import BallService 
-BallComponent add constructor BallService
-BallComponent invoke BallService
-BallService add method getMessage
+ng generate service ball  
+BallModule import BallService   
+BallModule add provider BallService   
+BallComponent import BallService   
+BallComponent add constructor BallService  
+BallComponent invoke BallService  
+BallService add method getMessage  
+
+## Add data ball service
+BallService add method getProducts  
+BallComponent invoke BallService.getProducts   
+Ball Component Html iterate products  
