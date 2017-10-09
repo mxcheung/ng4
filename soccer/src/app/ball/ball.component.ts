@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BallComponent implements OnInit {
 
+  message: String;
+  
   constructor() { }
 
   ngOnInit() {
+    this.message = 'hello';
   }
 
 }
