@@ -3,7 +3,7 @@ import { Subject, Observable } from 'rxjs/Rx';
 import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
 
 
-const URL: string = 'http://localhost:8080/api/products';
+const URL: string = 'http://localhost:8080';
 
 
 
@@ -41,5 +41,21 @@ export class BallService {
   getProducts() {
     return this.PRODUCTS;
   }
+
+  getProductsMock(): Observable<any> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    let somedata = this.http.get(`${URL}/api/products`, options)
+      .map((response: Response) => { console.log(response.json()); return <any>response.json() })
+      .catch(this.handleError);
+
+    return somedata;
+  }
+
+  private handleError(error: Response) {
+    return Observable.throw(error.text());
+  }
+
 
 }

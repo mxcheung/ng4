@@ -62,6 +62,17 @@ http://wiremock.org/docs/running-standalone/
 http://localhost:8080/api/mytest
 http://localhost:8080/api/products
 
+
 ## Add http  
 BallModule import HttpModule    
 BallService add constructor http  
+
+## Add http call to wiremock 
+BallService http get
+BallComponent subscribe ballService.getProductsMock
+
+## CORS OPTIONS headers not working when using a remote server  
+https://github.com/tomakehurst/wiremock/issues/721
+
+## Wiremock CORS not working
+https://stackoverflow.com/questions/42422343/wiremock-cors-not-working
