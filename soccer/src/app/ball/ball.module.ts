@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BallComponent } from './ball.component';
+import { BallService } from './ball.service';
 
 @NgModule({
   imports: [
@@ -8,6 +9,9 @@ import { BallComponent } from './ball.component';
   ],
   exports: [
     BallComponent
+  ],
+  providers: [
+    BallService
   ],
   declarations: [BallComponent]
 })

@@ -5,4 +5,8 @@ export class BallService {
 
   constructor() { }
 
+  getMessage(): string{
+    return "BallService Messages";
+  }
+
 }
