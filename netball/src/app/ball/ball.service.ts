@@ -1,4 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Subject, Observable } from 'rxjs/Rx';
+import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
+
+
+const URL: string = 'http://localhost:8080/api/products';
+
+
 
 @Injectable()
 export class BallService {
@@ -25,7 +32,7 @@ export class BallService {
       'active': true
     }
   ];
-  constructor() { }
+  constructor(private http: Http) { }
 
   getMessage(): string {
     return "BallService Messages";

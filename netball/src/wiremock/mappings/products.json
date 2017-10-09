@@ -1,0 +1,31 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/api/products"
+    },
+    "response": {
+        "status": 200,
+        "jsonBody": [
+    {
+      'productName': 'Product A',
+      'productId': 'A1',
+      'active': true
+    },
+    {
+      'productName': 'Product B',
+      'productId': 'B1',
+      'active': true
+    },
+    {
+      'productName': 'Product C',
+      'productId': 'C1',
+      'active': true
+    },
+    {
+      'productName': 'Product D',
+      'productId': 'D1',
+      'active': true
+    }
+  ]
+    }
+}
