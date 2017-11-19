@@ -1,9 +1,9 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { ParraService } from './parra.service';
-import { KeyValuePair } from './parra.model';
+import { KeyValuePair, Player } from './parra.model';
 
-describe('ParraService', () => {
+fdescribe('ParraService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [ParraService]
@@ -53,5 +53,44 @@ describe('ParraService', () => {
     expect(kv.value).toEqual('zzz');
   })));
 
+  it('should fetchplayer', (inject([ParraService], (parraService, mockBackend) => {
+    let player: Player = parraService.getPlayer();
+    expect(player.firstName).toEqual('joe');
+    expect(player.lastName).toEqual('bloggs');
+    expect(player.stats.length).toEqual(3);
+  })));
+
+  it('should fetchplayers', (inject([ParraService], (parraService, mockBackend) => {
+    let players: Player[] = parraService.getPlayers();
+    expect(players.length).toEqual(3);
+  })));
+
+  it('should fetchplayers by first name', (inject([ParraService], (parraService, mockBackend) => {
+    let players: Player[] = parraService.getPlayersByFirstName('tim');
+    expect(players.length).toEqual(1);
+  })));
+
+  it('should fetchplayers by position', (inject([ParraService], (parraService, mockBackend) => {
+    let players: Player[] = parraService.getPlayersByPosition('prop');
+    expect(players.length).toEqual(2);
+  })));
+
+  it('should fetch player age', (inject([ParraService], (parraService, mockBackend) => {
+    let players: Player[] = parraService.getPlayersByFirstName('tim');
+    expect(players.length).toEqual(1);
+    let player = players[0];
+    let age = parraService.getPlayerAge(player);
+    expect(age).toEqual('27');
+  })));
+
+  it('should fetchplayers by keyvalue', (inject([ParraService], (parraService, mockBackend) => {
+    let players: Player[] = []
+    let kv: KeyValuePair = { key: 'position', value: 'prop' };
+    players = parraService.filterPlayersByKeyValue(kv);
+    expect(players.length).toEqual(2);
+    kv = { key: 'age', value: '27' };
+    players = parraService.filterPlayersByKeyValue({ key: 'age', value: '27' });
+    expect(players.length).toEqual(1);
+  })));
 
 });
