@@ -118,12 +118,18 @@ export class ParraService {
   public filterPlayersByKeyValue(kv : KeyValuePair ): Player[] {
     let filteredItems: any[] = new Array();
     this.players.forEach(function (player) {
-      let stats: KeyValuePair[] = player.stats;
-      let stat = stats.filter(stat => stat.key === kv.key)[0];
-      if (stat.value === kv.value) {
+      if (player.stats.filter(stat => stat.key === kv.key)[0].value === kv.value) {
         filteredItems.push(player);
       }
     });
     return filteredItems;
   }
+
+  public filterPlayersByKeyValueX(kv : KeyValuePair ): Player[] {
+    return this.players.filter( player =>
+       player.stats.filter(stat => stat.key === kv.key)[0].value === kv.value
+      );
+  }
+
+
 }
