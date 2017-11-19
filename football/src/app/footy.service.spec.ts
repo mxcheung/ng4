@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed, inject, fakeAsync } from '@angular/co
 
 import { FootyService } from './footy.service';
 
-fdescribe('FootyService', () => {
+describe('FootyService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [FootyService]
@@ -29,7 +29,7 @@ fdescribe('FootyService', () => {
     expect(tasks.length).toEqual(3);
     expect(tasks[0]).toEqual('Write for Envato Tuts+');
     expect(tasks.indexOf('Work out')).toEqual(1);
-    expect(tasks.indexOf('dummy does not exist')).toEqual(-1);
+    expect(tasks.indexOf('dummy out')).toEqual(-1);
   })));
 
 });
