@@ -50,6 +50,10 @@ export class ParraService {
         { key: 'age', value: '24' },
         { key: 'ghi', value: '240' }
       ]
+    },
+    {
+      firstName: 'mitchell', lastName: 'moses',
+      stats: []
     }
 
   ];
@@ -120,6 +124,20 @@ export class ParraService {
     this.players.forEach(function (player) {
       if (player.stats.filter(stat => stat.key === kv.key)[0].value === kv.value) {
         filteredItems.push(player);
+      }
+    });
+    return filteredItems;
+  }
+
+  public filterPlayersByKeyValueNullCheck(kv : KeyValuePair ): Player[] {
+    let filteredItems: any[] = new Array();
+    this.players.forEach(function (player) {
+      let stats = player.stats;
+      if  (stats != undefined)  {
+        let filteredStats = stats.filter(stat => stat.key === kv.key);
+        if ((filteredStats.length == 1) && (filteredStats[0].value  === kv.value))  {
+          filteredItems.push(player);
+        }
       }
     });
     return filteredItems;
