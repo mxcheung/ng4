@@ -96,10 +96,17 @@ fdescribe('ParraService', () => {
   })));
 
 
+  it('should fetchplayers with stats', (inject([ParraService], (parraService, mockBackend) => {
+    let players: Player[] = []
+    players = parraService.filterPlayersWithStats({ key: 'position', value: 'prop' });
+    expect(players.length).toEqual(3);
+  })));
+
+
   it('should fetchplayersX by keyvalue', (inject([ParraService], (parraService, mockBackend) => {
     let players: Player[] = []
     let kv: KeyValuePair = { key: 'position', value: 'prop' };
-    players = parraService.filterPlayersByKeyValue(kv);
+    players = parraService.filterPlayersByKeyValueX(kv);
     expect(players.length).toEqual(2);
     kv = { key: 'age', value: '27' };
     players = parraService.filterPlayersByKeyValueX({ key: 'age', value: '27' });

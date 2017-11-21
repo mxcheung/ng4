@@ -98,18 +98,19 @@ export class ParraService {
   }
 
 
-  public getPlayerPosition(player : Player ): String {
+  public getPlayerPosition(player: Player): String {
     return player.stats.filter(stat => stat.key === 'position')[0].value;
   }
 
-  getPlayerAge( player : Player ): string {
-    let value : string = player.stats.filter(stat => stat.key === 'age')[0].value;
+  getPlayerAge(player: Player): string {
+    let value: string = player.stats.filter(stat => stat.key === 'age')[0].value;
     return value;
   }
 
   public getPlayersByPosition(position: string): Player[] {
     let filteredItems: any[] = new Array();
-    this.players.forEach(function (player) {
+    let playersWithStats: Player[] = this.players.filter(player => player.stats.some(stat => stat.key === 'position'));
+    playersWithStats.forEach(function (player) {
       let stats: KeyValuePair[] = player.stats;
       let stat = stats.filter(stat => stat.key === 'position')[0];
       if (stat.value === position) {
@@ -119,7 +120,7 @@ export class ParraService {
     return filteredItems;
   }
 
-  public filterPlayersByKeyValue(kv : KeyValuePair ): Player[] {
+  public filterPlayersByKeyValue(kv: KeyValuePair): Player[] {
     let filteredItems: any[] = new Array();
     this.players.forEach(function (player) {
       if (player.stats.filter(stat => stat.key === kv.key)[0].value === kv.value) {
@@ -129,13 +130,13 @@ export class ParraService {
     return filteredItems;
   }
 
-  public filterPlayersByKeyValueNullCheck(kv : KeyValuePair ): Player[] {
+  public filterPlayersByKeyValueNullCheck(kv: KeyValuePair): Player[] {
     let filteredItems: any[] = new Array();
     this.players.forEach(function (player) {
       let stats = player.stats;
-      if  (stats != undefined)  {
+      if (stats != undefined) {
         let filteredStats = stats.filter(stat => stat.key === kv.key);
-        if ((filteredStats.length == 1) && (filteredStats[0].value  === kv.value))  {
+        if ((filteredStats.length == 1) && (filteredStats[0].value === kv.value)) {
           filteredItems.push(player);
         }
       }
@@ -143,10 +144,17 @@ export class ParraService {
     return filteredItems;
   }
 
-  public filterPlayersByKeyValueX(kv : KeyValuePair ): Player[] {
-    return this.players.filter( player =>
-       player.stats.filter(stat => stat.key === kv.key)[0].value === kv.value
-      );
+  public filterPlayersWithStats(kv: KeyValuePair): Player[] {
+    return this.players.filter(player => player.stats.some(stat => stat.key === kv.key));
+  }
+
+  public filterPlayersByKeyValueX(kv: KeyValuePair): Player[] {
+    return this.players.filter(
+      player => player.stats.some
+        (
+        stat => (stat.key === kv.key) && (stat.value === kv.value)
+        )
+    );
   }
 
 
