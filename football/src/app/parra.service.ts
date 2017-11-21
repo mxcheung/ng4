@@ -151,9 +151,7 @@ export class ParraService {
   public filterPlayersByKeyValueX(kv: KeyValuePair): Player[] {
     return this.players.filter(
       player => player.stats.some
-        (
-        stat => (stat.key === kv.key) && (stat.value === kv.value)
-        )
+        (stat => (stat.key === kv.key) && (stat.value === kv.value))
     );
   }
 
