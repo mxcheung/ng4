@@ -3,7 +3,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { ParraService } from './parra.service';
 import { KeyValuePair, Player } from './parra.model';
 
-fdescribe('ParraService', () => {
+describe('ParraService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [ParraService]
