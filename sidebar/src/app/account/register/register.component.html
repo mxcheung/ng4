@@ -1,0 +1,30 @@
+<div class="card" *ngIf="!inviteTokenNotFound">
+  <div class="card-header">
+      <h4 class="title">{{createUser ? 'Register' : 'Portal Invitation'}}</h4>
+  </div>
+  <div class="card-body">
+      <div class="md-form" *ngIf=createUser>
+          <i class="fa fa-user-o prefix grey-text"></i>
+          <input mdbActive type="text" id="userFirstname" class="form-control" [(ngModel)]="user.firstName">
+          <label for="userFirstname">First name</label>
+      </div>
+
+      <div class="md-form" *ngIf=createUser>
+          <i class="fa fa-user-o prefix white-text"></i>
+          <input mdbActive type="text" id="userLastname" class="form-control" [(ngModel)]="user.lastName">
+          <label for="userLastname">Last name</label>
+      </div>
+
+      <div class="md-form" *ngIf=!createUser>
+           <p>Dear {{user.firstName}}</p>
+           <br>
+           <p>Thank you for accepting the invitation. Please click on the link to login to Data Portal.</p>
+           <br>
+      </div>
+
+      <div class="float-right">
+          <button type="button" class="btn ldp-blue-bg"  (click)="save()">{{createUser ? 'Register' : 'Proceed to login'}}</button>
+          <button type="button" class="btn ldp-blue-bg" *ngIf=createUser [routerLink]="['']">Cancel</button>
+      </div>
+  </div>
+</div>
