@@ -1,0 +1,33 @@
+<div>
+  <app-nav></app-nav>
+
+
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" 
+              (opened)="events.push('open!')" 
+              (closed)="events.push('close!')">
+      <app-sidenav></app-sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <p>
+        <mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox>
+      </p>
+      <p>
+        <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
+      </p>
+      <p>Events:</p>
+      <div class="example-events">
+        <div *ngFor="let e of events">{{e}}</div>
+      </div>
+      <main class="full-min-height grey lighten-4">
+        <div class="mx-4">
+          <router-outlet></router-outlet>
+        </div>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
+
+</div>
+<app-footer></app-footer>

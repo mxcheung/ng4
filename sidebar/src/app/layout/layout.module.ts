@@ -12,6 +12,8 @@ import { SampleModule } from 'angular-example-library';
 import {SearchBarComponent} from './search-bar/search-bar.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
+import { SideNavComponent } from './sidenav/sidenav.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   imports: [
@@ -25,6 +27,7 @@ import { FooterComponent } from './footer/footer.component';
   ],
   exports: [
     SearchBarComponent,
+    MainComponent,
     NavComponent,
     FooterComponent
   ],
@@ -35,7 +38,9 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     SearchBarComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    SideNavComponent,
+    MainComponent
   ]
 })
 export class LayoutModule { }

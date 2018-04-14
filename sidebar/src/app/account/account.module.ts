@@ -18,6 +18,10 @@ import {MaterialModule} from '../shared/index';
     SharedModule,
     MaterialModule
   ],
-  declarations: [RegisterComponent, ForgotPasswordComponent]
+  declarations: [RegisterComponent, ForgotPasswordComponent],
+  exports: [
+    RegisterComponent,
+    ForgotPasswordComponent
+],
 })
 export class AccountModule { }

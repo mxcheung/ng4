@@ -7,6 +7,7 @@ import {APP_CONFIG, AppConfig} from './config/app.config';
 import {AppRoutingModule} from './app-routing.module';
 import {SharedModule} from './shared/modules/shared.module';
 import {CoreModule} from './core/core.module';
+import {DashboardModule} from './dashboard/dashboard.module';
 import {LayoutModule} from './layout/layout.module';
 
 import {AppComponent} from './app.component';
@@ -45,6 +46,7 @@ import {environment} from '../environments/environment';
     }),
     CoreModule,
     LayoutModule,
+    DashboardModule,
     AppRoutingModule
   ],
   declarations: [
