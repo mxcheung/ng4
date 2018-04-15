@@ -12,8 +12,11 @@ import { SharedModule } from '../shared';
 import { DASHBOARD_ROUTES } from './dashboard-routing.module';
 import { DashboardOverviewComponent } from './sections/dashboard-overview/dashboard-overview.component';
 import { TableListComponent } from './sections/table-list/table-list.component';
+import { TypographyComponent } from './sections/typography/typography.component';
+import { IconsComponent } from './sections/icons/icons.component';
 import { MapsComponent } from './sections/maps/maps.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { HeroTopComponent } from './../heroes/hero-top/hero-top.component';
 
 @NgModule({
   imports: [
@@ -29,7 +32,10 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
   declarations: [ 
      DashboardOverviewComponent,
      TableListComponent,
-     MapsComponent
+     TypographyComponent,
+     IconsComponent,
+     MapsComponent,
+     HeroTopComponent
     ],
   providers: [
   ],

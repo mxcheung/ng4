@@ -6,8 +6,10 @@ import {ForgotPasswordComponent} from './../account/index';
 
 import { DashboardOverviewComponent } from './sections/dashboard-overview/dashboard-overview.component';
 import { TableListComponent } from './sections/table-list/table-list.component';
+import { IconsComponent } from './sections/icons/icons.component';
 import { MapsComponent } from './sections/maps/maps.component';
 import { HeroTopComponent } from './../heroes/hero-top/hero-top.component';
+import { TypographyComponent } from './sections/typography/typography.component';
 
 /*
 {
@@ -20,10 +22,13 @@ import { HeroTopComponent } from './../heroes/hero-top/hero-top.component';
       path: 'overview',  component: DashboardOverviewComponent
 
 */
+
 export const DASHBOARD_ROUTES: Routes = [
   { path: '', redirectTo: 'overview', pathMatch: 'full' },
-  { path: 'overview',  component: HeroTopComponent  },
-  { path: 'table-list',     component: TableListComponent },
-  { path: 'maps',     component: MapsComponent },
-  { path: 'heroes', loadChildren: 'app/heroes/heroes.module#HeroesModule'} 
+  { path: 'overview', component: HeroTopComponent },
+  { path: 'table-list', component: TableListComponent },
+  { path: 'typography', component: TypographyComponent },
+  { path: 'icons', component: IconsComponent },
+  { path: 'maps', component: MapsComponent },
+  { path: 'heroes', loadChildren: 'app/heroes/heroes.module#HeroesModule' }
 ];
