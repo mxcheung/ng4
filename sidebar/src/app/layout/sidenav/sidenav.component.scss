@@ -1,13 +1,63 @@
-.demo-menu {
-    display: flex;
-    flex-flow: row wrap;
-  
-    .menu-section {
-      width: 300px;
-      margin: 20px;
-    }
-  
-    .end-icon {
-      justify-content: flex-end;
-    }
+@import "../../../assets/sass/md/variables";
+
+.logo-img{
+  width: 30px;
+  display: inline-block;
+  max-height: 30px;
+  margin-left: 10px;
+  margin-right: 15px;
+
+  img{
+      width: 35px;
+      top: 16px;
+      position: absolute;
   }
+}
+
+
+.sidebar-wrapper{
+  position: relative;
+  height: calc(100vh - 75px);
+  overflow: auto;
+  width: 260px;
+  z-index: 4;
+  background-color: $white-color;
+   .nav{
+        margin-top: 20px;
+
+        li{
+            > a{
+                margin: 10px 15px;
+                border-radius: $border-radius-base;
+                color: $black-color;
+                background-color: transparent;
+            }
+
+            &:hover > a,
+            &.active:focus{
+                background: rgba(200, 200, 200, 0.2);
+                color: $black-color;
+            }
+        }
+
+        p{
+            margin: 0;
+            line-height: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            // text-transform: uppercase;
+        }
+
+        i{
+            font-size: 24px;
+            float: left;
+            margin-top: 26px;
+            margin-right: 15px;
+            line-height: 30px;
+            width: 30px;
+            text-align: center;
+            color: #a9afbb;
+        }
+
+    }
+}

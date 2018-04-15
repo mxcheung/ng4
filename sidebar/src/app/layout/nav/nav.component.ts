@@ -38,7 +38,7 @@ export class NavComponent {
   private loadMenus(): void {
     this.translateService.get(['home', 'heroesList', 'register', 'forgot-password'], {}).subscribe((texts: any) => {
       this.menuItems = [
-        {link: '/', name: texts['home']},
+        {link: '/' + AppConfig.routes.dashboard, name: texts['home']},
         {link: '/' + AppConfig.routes.heroes, name: texts['heroesList']},
         {link: '/' + AppConfig.routes.account + '/register', name: texts['register']},
         {link: '/' + AppConfig.routes.account + '/forgot/password', name: texts['forgot-password']}
