@@ -25,27 +25,5 @@ export const DASHBOARD_ROUTES: Routes = [
   { path: 'overview',  component: HeroTopComponent  },
   { path: 'table-list',     component: TableListComponent },
   { path: 'maps',     component: MapsComponent },
-
-  {
-    path: 'heroes2', 
-    children: [
-      {
-        path: '',
-        component: HeroTopComponent
-      },
-      {
-        path: ':companyId/:extUniqueKey/:segmentCd/edit',
-        component: HeroTopComponent
-      },
-      {
-        path: 'products',
-        component: HeroTopComponent,
-      }
-      
-    ]
-   
-  },
-  {path:'heroes', loadChildren: 'app/heroes/heroes.module#HeroesModule'} 
-
-  
+  { path: 'heroes', loadChildren: 'app/heroes/heroes.module#HeroesModule'} 
 ];
