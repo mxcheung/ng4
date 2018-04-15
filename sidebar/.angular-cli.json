@@ -25,7 +25,8 @@
       "styles": [
         "assets/css/reset.css",
         "assets/css/loading.css",
-        "assets/css/styles.scss"
+        "assets/css/styles.scss",
+        "assets/sass/material-dashboard.scss"
       ],
       "scripts": [
         "assets/js/modernizr.js",

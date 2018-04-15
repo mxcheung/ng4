@@ -6,7 +6,7 @@ export let APP_CONFIG = new InjectionToken('app.config');
 
 export const AppConfig: IAppConfig = {
   routes: {
-    heroes: 'heroes',
+    heroes: 'dashboard/heroes',
     account: 'account',
     error404: '404'
   },

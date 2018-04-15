@@ -1,19 +1,24 @@
-import {Component} from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Location, LocationStrategy, PathLocationStrategy, PopStateEvent } from '@angular/common';
+
 import {TranslateService} from '@ngx-translate/core';
 import {Meta, Title} from '@angular/platform-browser';
 
-import {NavigationEnd, Router} from '@angular/router';
+import { Router, NavigationEnd, NavigationStart } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 import {AppConfig} from './config/app.config';
 import {MatSnackBar} from '@angular/material';
 
 declare const Modernizr;
+
+declare const $: any;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   isOnline = navigator.onLine;
 
@@ -21,6 +26,7 @@ export class AppComponent {
               private title: Title,
               private meta: Meta,
               private snackBar: MatSnackBar,
+              public location: Location,
               private router: Router) {
 
     this.translateService = translateService;
@@ -49,6 +55,13 @@ export class AppComponent {
     });
 
     this.checkBrowserFeatures();
+  }
+  ngOnInit() {
+//    $.material.init();
+ //   const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
+ //   const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
+
+
   }
 
   checkBrowserFeatures() {

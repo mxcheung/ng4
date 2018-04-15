@@ -1,65 +1,59 @@
-<button mat-button [matMenuTriggerFor]="animals">Animal index</button>
+<div class="logo">
+    <a href="https://www.creative-tim.com" class="simple-text">
+        <div class="logo-img">
+            <img src="/assets/img/angular2-logo-red.png"/>
+        </div>
+        Creative Tim
+    </a>
+</div>
+<div class="sidebar-wrapper">
+    <form class="navbar-form navbar-right" role="search" *ngIf="isMobileMenu()">
+        <div class="form-group form-black is-empty">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="material-input"></span>
+        </div>
+        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+            <i class="material-icons">search</i><div class="ripple-container"></div>
+        </button>
+    </form>
 
-<mat-menu #animals="matMenu">
-  <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates
-    <mat-icon>more_vert</mat-icon>
-  </button>
-  <button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
-</mat-menu>
+    <ul class="nav nav-mobile-menu" *ngIf="isMobileMenu()">
+        <li>
+            <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="material-icons">dashboard</i>
+                <p class="hidden-lg hidden-md">Dashboard</p>
+            </a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="material-icons">notifications</i>
+                <span class="notification">5</span>
+                <p class="hidden-lg hidden-md">Notifications</p>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Mike John responded to your email</a></li>
+                <li><a href="#">You have 5 new tasks</a></li>
+                <li><a href="#">You're now friend with Andrew</a></li>
+                <li><a href="#">Another Notification</a></li>
+                <li><a href="#">Another One</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+               <i class="material-icons">person</i>
+               <p class="hidden-lg hidden-md">Profile</p>
+            </a>
+        </li>
+    </ul>
 
-<mat-menu #vertebrates="matMenu">
-  <button mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>
-  <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
-  <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
-  <button mat-menu-item>Birds</button>
-  <button mat-menu-item>Mammals</button>
-</mat-menu>
-
-<mat-menu #invertebrates="matMenu">
-  <button mat-menu-item (click)="select('insect')">Insects
-  </button>
-  <button mat-menu-item>Molluscs</button>
-  <button mat-menu-item>Crustaceans</button>
-  <button mat-menu-item>Corals</button>
-  <button mat-menu-item>Arachnids</button>
-  <button mat-menu-item>Velvet worms</button>
-  <button mat-menu-item>Horseshoe crabs</button>
-</mat-menu>
-
-<mat-menu #fish="matMenu">
-  <button mat-menu-item>Baikal oilfish</button>
-  <button mat-menu-item>Bala shark</button>
-  <button mat-menu-item>Ballan wrasse</button>
-  <button mat-menu-item>Bamboo shark</button>
-  <button mat-menu-item>Banded killifish</button>
-</mat-menu>
-
-<mat-menu #amphibians="matMenu">
-  <button mat-menu-item>Sonoran desert toad</button>
-  <button mat-menu-item>Western toad</button>
-  <button mat-menu-item>Arroyo toad</button>
-  <button mat-menu-item>Yosemite toad</button>
-</mat-menu>
-
-<mat-menu #reptiles="matMenu">
-  <button mat-menu-item>Banded Day Gecko</button>
-  <button mat-menu-item>Banded Gila Monster</button>
-  <button mat-menu-item>Black Tree Monitor</button>
-  <button mat-menu-item>Blue Spiny Lizard</button>
-  <button mat-menu-item disabled>Velociraptor</button>
-</mat-menu>
-
-<mat-toolbar>
-  <button mat-icon-button [matMenuTriggerFor]="menu" >
-    <mat-icon>home</mat-icon>
-    Open basic menu
-  </button>
-</mat-toolbar>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item *ngFor="let item of items" (click)="select(item.text)" [disabled]="item.disabled">
-    {{ item.text }}
-  </button>
-</mat-menu>
-
-
-<p>You clicked on: {{ selected }}</p>
+    <div class="nav-container">
+        <ul class="nav">
+            <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+                <a  [routerLink]="[menuItem.path]">
+                    <i class="material-icons">{{menuItem.icon}}</i>
+                    <p>{{menuItem.title}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
