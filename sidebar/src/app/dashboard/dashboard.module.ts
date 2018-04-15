@@ -9,17 +9,11 @@ import { LayoutModule } from '../layout/index'
 import { AccountModule } from '../account';
 import { SharedModule } from '../shared';
 
-import { DASHBOARD_ROUTES } from './dashboard.routes';
+import { DASHBOARD_ROUTES } from './dashboard-routing.module';
 import { DashboardOverviewComponent } from './sections/dashboard-overview/dashboard-overview.component';
 import { TableListComponent } from './sections/table-list/table-list.component';
 import { MapsComponent } from './sections/maps/maps.component';
-
-
-/*
-    RegisterComponent,
-    ForgotPasswordComponent
-
-*/
+import { DashboardRoutingModule } from './dashboard-routing.module';
 
 @NgModule({
   imports: [
@@ -29,6 +23,7 @@ import { MapsComponent } from './sections/maps/maps.component';
     HttpModule,
     SharedModule,
     LayoutModule,
+    DashboardRoutingModule,
     AccountModule
   ],
   declarations: [ 

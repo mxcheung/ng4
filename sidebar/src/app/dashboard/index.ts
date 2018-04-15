@@ -1,2 +1,2 @@
 export * from './dashboard.module';
-export * from './dashboard.routes';
+export * from './dashboard-routing.module';
