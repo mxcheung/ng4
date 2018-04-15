@@ -13,10 +13,7 @@ import { DASHBOARD_ROUTES } from './dashboard/index';
 
 */ 
 const routes: Routes = [
-  {path: '', redirectTo: '/', pathMatch: 'full'
-  },
-  {path: '', component: MainComponent
-  },
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   {
     path: 'dashboard',
     component: MainComponent,

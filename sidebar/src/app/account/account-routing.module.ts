@@ -5,13 +5,10 @@ import {RegisterComponent} from './register/register.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 
 const accountRoutes: Routes = [
-  {
-    path: '',
-    children: [
-      {path: '', component: RegisterComponent},
-      {path: 'forgot/password', component: ForgotPasswordComponent}
-    ]
-  }
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  {path: 'forgot/password', component: ForgotPasswordComponent},
+  {path: 'register', component: RegisterComponent}
+  
 ];
 
 @NgModule({
