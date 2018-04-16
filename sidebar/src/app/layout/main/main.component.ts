@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SideNavComponent } from '../sidenav/sidenav.component';
+import {AppConfig} from '../../config/app.config';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-main',
@@ -9,9 +12,10 @@ import { SideNavComponent } from '../sidenav/sidenav.component';
 export class MainComponent implements OnInit {
   events = [];
   @ViewChild('sidenav') public sidenav: SideNavComponent;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.router.navigate([AppConfig.routes.dashboard + '/overview']);
   }
 
   showNav(event: boolean): void {
