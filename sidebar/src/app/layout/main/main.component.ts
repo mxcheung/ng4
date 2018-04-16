@@ -15,7 +15,7 @@ export class MainComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.router.navigate([AppConfig.routes.dashboard + '/overview']);
+    this.router.navigate([AppConfig.routes.dashboard + '/hero-top']);
   }
 
   showNav(event: boolean): void {

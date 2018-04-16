@@ -18,17 +18,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Dakota Rice</td>
-                                    <td>Niger</td>
-                                    <td>Oud-Turnhout</td>
-                                    <td class="text-danger">$36,738</td>
-                                </tr>
-                                <tr>
-                                    <td>Minerva Hooper</td>
-                                    <td>Curaçao</td>
-                                    <td>Sinaai-Waas</td>
-                                    <td class="text-danger">$23,789</td>
+                                <tr *ngFor='let element of ELEMENT_DATA; let i = index'>
+                                        <td>{{element.name}}</td>
+                                        <td>{{element.country}}</td>
+                                        <td>{{element.city}}</td>
+                                        <td class="text-danger">{{element.salary | currency:'AUD':true:"1.0"}}</td>
                                 </tr>
                                 <tr>
                                     <td>Sage Rodriguez</td>
@@ -79,19 +73,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Dakota Rice</td>
-                                    <td>$36,738</td>
-                                    <td>Niger</td>
-                                    <td>Oud-Turnhout</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Minerva Hooper</td>
-                                    <td>$23,789</td>
-                                    <td>Curaçao</td>
-                                    <td>Sinaai-Waas</td>
+                                <tr *ngFor='let element of ELEMENT_DATA; let i = index'>
+                                        <td>{{element.position}}</td>
+                                        <td>{{element.name}}</td>
+                                        <td>{{element.salary | currency:'AUD':true:"1.0"}}</td>
+                                        <td>{{element.country}}</td>
+                                        <td>{{element.city}}</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
